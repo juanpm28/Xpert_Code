@@ -1,0 +1,101 @@
+body{ 
+    margin-left: 40px;
+    margin-right: 40px;
+    flex-direction: row;
+}
+
+#colFormLabelLg{
+    background-color: rgba(78, 177, 144, 0.5);
+    margin-left: 15px;  
+    width: 590px;
+}
+
+#colFormLabelLgMensaje{
+    background-color: rgba(78, 177, 144, 0.5);
+    margin-left: 15px;  
+    height: 300px;
+    width: 590px;
+}
+#mensaje{
+    height: 200px;
+}
+.btn_enviar{
+    background-color: rgba(78, 177, 144, 0.8);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.formulariotitulo{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+}
+hr {
+    height: 20px;  /* cambias largo del borde */
+    margin-bottom: 10px;
+    background-color: rgb(96, 186, 155);
+    width: 45%;
+  }
+.form{
+    width: auto;
+    padding: 20px;
+
+
+}
+.mapacont{
+   padding: 10px;
+    
+    
+}
+#mapa{
+    border-radius: 15px;
+    justify-content: right;
+    margin-left: 30px;
+  
+}
+
+.form, .mapacont{
+    display: inline-block;
+   
+}
+footer {
+    color:white; 
+    background-color: black;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    margin-top: 50px;
+  }
+#iconc{
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+
+/* .col-sm-2{
+text-align: right;
+    display: center;
+    overflow: auto;
+}   */
+
+/* .form{
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+}
+/* .formularioinput, .formulariolabel {
+    display: inline-block;
+
+} 
+.formularioinput{
+
+} */
