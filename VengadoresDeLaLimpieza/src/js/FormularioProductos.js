@@ -1,7 +1,7 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const expresiones = {
-	nombre: /^[a-zA-Z0-9-ZÀ-ÿ-\s]{3,60}$/, // nombre=producto Letras, números y espacios, pueden llevar acentos.
+	nombre: /^[a-zA-Z0-9-ZÀ-ÿ-.\s]{3,60}$/, // nombre=producto Letras, números y espacios, pueden llevar acentos.
 	sku: /^[A-Z0-9-ZÀ-ÿ\s]{8,12}$/, // SKU Letras, numeros, guion y guion_bajo
     precio : /^[0-9.\s]{1,6}$/, // Precio núemros y punto . 
 }
@@ -48,7 +48,8 @@ inputs.forEach((input) => {
 let nombre = document.getElementById("nombre");
 let sku = document.getElementById("sku");
 let precio = document.getElementById("precio");
-let imagen = document.getElementById("imagen");
+let imagen = document.getElementById("inputFile");
+let vis = document.getElementById("imageFile");
 
 botonEnviar.addEventListener("click", (event)=> {
 event.preventDefault();
@@ -57,29 +58,39 @@ let registro = `
 "img" : "${imagen.value}",
 "precio" : "${precio.value}",
 "sku" : "${sku.value}"}`;
-
 //DEl JSON a Productos De Limpieza
 tmp = JSON.parse(localStorage.getItem("productosLimpieza"));
 tmp.push(JSON.parse(registro));
-
 // Crear de nuevo el JSON
 localStorage.setItem("productosLimpieza", JSON.stringify(tmp));
 
 });
 
-// Imagen
+botonEnviar.addEventListener("click", (event) =>{
+	nombre.value = "";
+	sku.value = "";
+	precio.value = "";
+	imagen.value = "";
+	vis.src = "/src/imagenes/pix_white.png";
+	nombre.focus();
+})
+
+//******************************Imagen*********************************
 let fileImage = document.getElementById('fileImage');
 	let btnFake = document.getElementById('btnFake');
 	let imageFile = document.getElementById('imageFile');
 	let selectImages = document.getElementById('selectImages');
 	let store = {'names':[], 'data': []};
+
 	window.addEventListener('load', function(e){
 		console.log("store.data:" + store.data);
 		console.log(localStorage.getItem("imgsData"));
 		if ( JSON.parse(localStorage.getItem("imgsData"))!=null)
 			store = JSON.parse(localStorage.getItem("imgsData"));
+		
 		fillSelect();
 	});
+//Imagen
 	function fillSelect(){
 		if (store.data.length>0) {
 			selectImages.options.length = 0; // clear Select
@@ -96,6 +107,9 @@ let fileImage = document.getElementById('fileImage');
 		}//if store != null
 		console.log(store);
 	}//fillSelect
+
+
+
 	btnFake.addEventListener('click', function(){
 		fileImage.click();
     });
@@ -103,6 +117,7 @@ let fileImage = document.getElementById('fileImage');
         previewFile('imageFile', 'fileImage', 'inputFile' )
         //previewFile(id imagen, input type file , textArea);
     });
+
 		//previewFile(id imagen, input type file , textArea);
 		function previewFile(img, inputFile, input) {
 			var preview = document.getElementById(img);
@@ -119,11 +134,16 @@ let fileImage = document.getElementById('fileImage');
 				localStorage.setItem("imgsData", JSON.stringify(store));
 				fillSelect();
 		  	}, false);
+			
 		  	if (file) {
 		    	reader.readAsDataURL(file);
 		  	}// file
 		}// previewFile 
+
+
 		selectImages.addEventListener("change", function(){
 			imageFile.src = store.data[selectImages.options[selectImages.selectedIndex].value];
 		});
+//******************************Imagen*********************************
+
 		

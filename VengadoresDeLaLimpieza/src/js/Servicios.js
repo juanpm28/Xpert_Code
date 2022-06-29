@@ -32,7 +32,7 @@ function addItem(item){
     itemsContainer.innerHTML += itemHTML;
 }
 
-addItem({'nombre':'Paquete Basico, hasta 70m²',
+addItem({'nombre':'Paquete Basic, hasta 70m²',
     'img':'/src/imagenes/paquete1.png',
     'precio': '$1,499.00',
     'sku':'SKU: PAENT10'});
