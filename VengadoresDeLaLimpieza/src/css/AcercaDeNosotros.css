@@ -2,24 +2,18 @@
     margin: auto;
     justify-content: center;
   }
-  
     .card-deck {
       margin: 20px;
-      /*display: flex; /* equal height of the children */
-      /*width: 1000px;
-      /*height: 1500; 
-      /*justify-content: center;
-      /*max-width: auto; */
       box-sizing: content-box;
       
     }
-  
+
   .descripcionAc {
     text-align: center;
     align-content: center;
     vertical-align: middle;
   }
-  
+
   .card {
     padding: 10px;
     border-radius: 20px;
@@ -82,8 +76,6 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    /* margin-left: 10px;
-    margin-right: 10px; */
 }
 
 #superior {
@@ -99,7 +91,6 @@ header {
     border: none;
 }
 
-
 .nav-link {
     font-weight: 600;
     font-size: 20px;
@@ -109,7 +100,6 @@ header {
     transition: all 400ms ease;
     transform: translateY(-3%);
 }
-
 
 #nav-center {
     display: flex;
@@ -256,3 +246,14 @@ justify-content: center;
     text-align: center;
     }
 } /* Footer */
+
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}

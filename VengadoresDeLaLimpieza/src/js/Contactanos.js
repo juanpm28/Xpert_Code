@@ -4,7 +4,7 @@ const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{3,60}$/, // Letras y espacios, pueden llevar acentos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{10,10}$/, // 10 a 10 numeros.
-    mensaje: /^[a-zA-Z0-9-ZÀ-ÿ_.:=$+-?¿¡!/%#"*\s]{10,250}$/, // Letras, numeros, guion y guion_bajo
+    mensaje: /^[a-zA-Z0-9-ZÀ-ÿ_.:=$+-?¿¡!/%#"*())\s]{10,250}$/, // Letras, numeros, guion y guion_bajo
 }
 const campos = {
 	nombre: false,

@@ -16,6 +16,11 @@
     align-items: center;
     margin-bottom: 15px;
 }
+.linkscard{
+    color:black;
+    text-decoration: solid;
+}
+
 .card-body {
     
     text-align: center;
@@ -25,9 +30,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.card:hover{
+    transition: all 400ms ease;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+  }
+  
 .card{
     border-radius: 20px;
-    border-color: black;
+    border-color: rgb(96, 186, 155);
 }
 
 .cont-imagen{
@@ -50,4 +61,15 @@
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+}
+
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
 }
