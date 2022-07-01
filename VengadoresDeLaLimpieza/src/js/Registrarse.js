@@ -107,16 +107,13 @@ formulario.addEventListener('submit', (e) => {
 	}
 });
 
-
 // localStorage
-
 let nombre = document.getElementById("nombre");
 let telefono = document.getElementById("telefono");
 let correo = document.getElementById("correo");
 let password = document.getElementById("password");
 let password2=document.getElementById("password2");
 let baseRegistro=[];
-
 btnCrearCuenta.addEventListener("click", (event)=> {
 event.preventDefault();
 let guardarRegistro =  `{"nombre" : "${nombre.value}",
@@ -124,14 +121,11 @@ let guardarRegistro =  `{"nombre" : "${nombre.value}",
 "correo" : "${correo.value}",
 "password" : "${password.value}",
 "password2" : "${password2.value}"}`;
-
 //DEl JSON a Productos De Limpieza
 tmp = JSON.parse(localStorage.getItem("baseRegistro"));
 tmp.push(JSON.parse(guardarRegistro));
-
 localStorage.setItem("baseRegistro", JSON.stringify(tmp));
 });
-
 if(localStorage.length == 0){
     window.localStorage.setItem("baseRegistro", JSON.stringify(baseRegistro));
     window.addEventListener("load",function() {
@@ -149,3 +143,11 @@ if(localStorage.length > 0){
         });
     });
 }
+btnCrearCuenta.addEventListener("click", (event) =>{
+	nombre.value = "";
+	telefono.value = "";
+	correo.value = "";
+	password.value = "";
+	password2.value = "";
+	nombre.focus();
+})
