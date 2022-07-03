@@ -1,9 +1,16 @@
-#superior {
-    box-sizing: content-box;
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
 }
 
-header {
-    background-color: white;
+#superior {
+    box-sizing: content-box;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .navbar {
@@ -13,9 +20,12 @@ header {
 
 .barraBuscador {
     /* min-width: 500px; */
-border-color:rgb(39, 110, 146) ; 
+    border-color:rgb(39, 110, 146, 0.7); 
+    height: 41px;
+    margin-right: -44px;
+    border-radius: 10px 10px 10px 10px;
     min-width: 400px;
-    width: 400ppx;
+    justify-content: center;
 }
 
 .nav-link {
@@ -56,16 +66,12 @@ nav ul li a:hover:before {
         transform-origin: left;
 }
 
-#superior {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 .botonB {
     background-color: rgb(39, 110, 146);
+    border-radius: 0px 10px 10px 0px;
     color: white;
+    width: 43px;
+    height: 41px;
 }
 
 .botonB:hover {
@@ -78,33 +84,57 @@ hr {
     background-color: rgb(39, 110, 146);
     border: none;
     border-radius: 3px;
+    margin-bottom: 5px;
 }
+
 
 #login {
-    text-align: right;
-    margin-top: 20px;
-    display: flex;
+    margin-top: 5px;
     justify-content: center;
     align-items: center;
-    display: block; 
+    display: flex;
+    flex-direction: row;
+    margin-left: 70px;
 }
 
-#login a {
+/* #login a {
     text-decoration: none;
     color: black;
-   
+} */
+
+#carritoIcon {
+    height: 50px;
+    width: 50px;
+    margin-top: 5px;
+    color: rgb(39, 110, 146);
+}
+
+.perfil {
+    height:50px; 
+    width:50px; 
+    margin-top:5px; 
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2); 
+    border-radius:250px;
+}
+
+#perfilIcon {
+    height:50px; 
+    width:50px; 
+    margin-top:5px; 
+    color:rgb(39, 110, 146); 
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2); 
+    border-radius:250px;
 }
 
 #logo {
     width: 300px;
     height: 102px;
     margin-top: 10px;
+    justify-content: left;
 }
 
 #buscar {
-    margin-left: 100px;
-    margin-right: 100px;
-    width: 500px;
+    width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,6 +163,43 @@ hr {
         margin-left: 60px;
         margin-right: 60px;
     }
+}
+
+/* #btnBuscarCelular {
+    display: none;
+} */
+
+#navbarCelular {
+    display: none;
+}
+
+@media screen and (max-width: 700px){
+
+    #navbarCelular {
+        display: block;
+    }
+    header {
+        display: none;
+    }
+
+    .barraBuscador {
+        min-width: 200px;
+    }
+    hr {
+        width: 100%;
+        margin-bottom: 0px;
+        border-radius: 0px;
+    }
+    #logo {
+        width: 260px;
+        height: 90px;
+    }
+    #carritoUsuario_celular {
+        display: flex;
+        flex-direction: row;
+    }
+
+
 }
 
     footer{
