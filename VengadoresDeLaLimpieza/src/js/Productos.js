@@ -39,7 +39,8 @@ const productosLimpieza = [{"nombre" : "Kit de Limpieza Completo Mascota Feliz",
 "precio" : "1,260.00",
 "sku" : "RKQ35H1"}];
 
-function addItem(item){
+function addItem(item, con){
+    
     const itemHTML= `<div class="card-deck">
     <div class="card" style="widt h: 18rem;">
     <img class="cont-imagen" src="${item.img}" class="card-img-top"  alt="..." >
@@ -62,47 +63,55 @@ function addItem(item){
     <p class="card-precio">$${item.precio}</p>
     <hr class="precio-barra"/>
     <p class="card-sku">SKU: ${item.sku}</p>
-    <a type="submit" class="btn btn-primary btnGreen">+</a>
-    <a type="submit" class="btn btn-primary btnRed"><b>-</b></a>
-    <input type="number" value="" class="contador" id="inputContador" name="contadorProductos">
+    <button onclick="press(3` + con + `,1)" class="btn btn-primary btnGreen">+</button>
+    <button onclick="press(3` + con + `,0)" class="btn btn-primary btnRed"><b>-</b></button>
+    <input id="3` + con + `" type="text" class="contador" style="text-align: center;" value="" placeholder="0">
     </div>
     <button type="button" class="btn btn-primary btn-lg btn-block btnAgregar">Agregar</button>
-
     </div>
 </div>
-</div>`;
+</div>
+`;
     const itemsContainer = document.getElementById("lista-items");
     itemsContainer.innerHTML += itemHTML;
 }
 
 if(localStorage.length == 0){
+    let con = 0;
     window.localStorage.setItem("productosLimpieza", JSON.stringify(productosLimpieza));
     window.addEventListener("load",function() {
         productos = JSON.parse(localStorage.getItem("productosLimpieza"));
         productos.forEach(element => {
-            addItem(element);
+            con = con +1;
+            addItem(element, con);
         });
     });
 }
 
 if(localStorage.length > 0){
+    let con = 0;
     window.addEventListener("load",function() {
         productos = JSON.parse(localStorage.getItem("productosLimpieza"));
         productos.forEach(element => {
-            addItem(element);
+            con = con +1;
+            addItem(element, con);
         });
     });
 }
 
-btnMas = document.getElementsByClassName("btnGreen");
-contadorDelInput = document.getElementById("inputContador");
-contador = 0;
+function press(id_input, operacion){
+    let numero=$("#"+id_input).val();
+    if(operacion>0 ){    
+    numero++;
+      }
+    else if(numero>=0){
+        numero>0 && numero --;  
+      }
+      else{
+        numero--; 
+    }
+    $("#"+id_input).val(numero);
+  }
+  
 
-
-btnMas.addEventListener("click", (event)=>{
-    contador++;
-    contadorDelInput = contador;
-
-})
-
-console.log("valor contador: " + contadorDelInput);
+  
