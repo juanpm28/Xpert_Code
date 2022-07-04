@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+} /* Se añadió fuente Inter */
+
 body{
 	width:100%;
 	height:100%;
@@ -17,26 +22,23 @@ body{
 .form-container{
 	padding: 20px;
 }
-.formulariotitulo{
+
+h5 {
 	text-align: center;
-	font-weight: 600px;
-	margin-top: 10px;
-	margin-bottom: 5px;
-}
+	font-size: 42px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 15px;
+} 
+
 .barra{
-        height: 7px;
-        margin-bottom: 30px;
-        width: 45%;
-        margin-top: 0px;
-		background-color: rgb(96, 186, 155);
-  }
-  .nueva{
-    height: 10px; 
-    width: 90%;
-    background-color: rgb(39, 110, 146);
-    border: none;
-    border-radius: 3px;
-}
+	height: 7px;  /* cambias largo del borde */
+	margin-bottom: 30px;
+	background-color: rgb(96, 186, 155);
+	width: 45%;
+	margin-top: 0px;
+ }
+
 .contact-form{
 	display:grid;
 	row-gap: 1rem;
@@ -166,62 +168,3 @@ height: 100%;
 		height: 400px;
 	}
 }
-footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    text-align: center;
-    height: 100px;
-    line-height: 100px;
-}
-
-footer{
-	background-color: black;
-	height:auto;
-	width: 100%;
-	margin-top: auto;
-	padding: 10px;
-	color:white;
-}
-.footer-content{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	text-align: center;
-}
-.footer-content h3{
-font-size: 20px;
-line-height: 30px;
-}
-.footer-content .iconos{
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.footer-content .iconos #iconc{
-	fill: white;
-	margin: 0 10px;
-	width: 18px;
-	height: 18px;
-}
-.texto p{
-	font-size:14px;
-	word-spacing: 2px;
-	justify-content: center;
-	flex-direction: column;
-	text-align: center;
-	margin:15px;
-}
-@media (max-width: 700px){
-	.footer-content{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	text-align: center;
-	}
-}
-
