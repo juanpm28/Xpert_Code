@@ -1,151 +1,219 @@
-const formulario = document.getElementById('formulario');
-const inputs = document.querySelectorAll('#formulario input');
+let Nombre=document.getElementById("Nombreperson");
+let Correo=document.getElementById("Emailregistro");
+let Correoconfirm=document.getElementById("Emailconfirm");
+let Telefono=document.getElementById("Phoneregistro");
+let Contrasenajs=document.getElementById("Contrasena");
+let ConfirmContrasenajs=document.getElementById("Contrasenaconfirm");
+let Politicajs=document.getElementById("Politicas");
+let Terminosjs=document.getElementById("Terminos");
 
-const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{3,60}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,20}$/, // 4 a 20 digitos.
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{10,10}$/ // 10  numeros.
+let datos = [];
+let contador=0;
+
+function validarNombre ()
+{
+    if(Nombre.value.length==0)
+    {
+        return false;
+    } else if(Nombre.value.length<3)
+    {
+        return false;
+    } else if(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]/.test(Nombre.value))
+    {    
+    return true;
+    }
 }
 
-const campos = {
-	usuario: false,
-	nombre: false,
-	password: false,
-	correo: false,
-	telefono: false
+function validarCorreo ()
+{
+    if(/^[a-zA-ZñÑ_0-9._%+-]+@(?:[a-zA-ZÑñ_0-9.-]+\.)[a-zA-Z]{2,6}/.test(Correo.value))
+    {
+        return true;
+    }
+    if(!isNaN(Correo[0]))
+    {
+        return false;
+    }
+    else return false;
 }
 
-const validarFormulario = (e) => {
-	switch (e.target.name) {
-		case "usuario":
-			validarCampo(expresiones.usuario, e.target, 'usuario');
-		break;
-		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
-		break;
-		case "password":
-			validarCampo(expresiones.password, e.target, 'password');
-			validarPassword2();
-		break;
-		case "password2":
-			validarPassword2();
-		break;
-		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
-		break;
-		case "telefono":
-			validarCampo(expresiones.telefono, e.target, 'telefono');
-		break;
-	}
+function validarCorreoconfirm ()
+{
+    if(Correoconfirm.value.length==0)
+    {
+        return false;
+    } else if(Correo.value !== Correoconfirm.value)
+    {
+        return false;
+    }
+    return true;
 }
 
-const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		campos[campo] = true;
-	} else {
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-		campos[campo] = false;
-	}
+function validarTelefono ()
+{
+    if(Telefono.value.length==0)
+    {
+        return false;
+    } else if(isNaN(Telefono.value))
+    {
+        return false;
+    } else if(Telefono.value.length<10 || Telefono.value.length>10)
+    {
+        return false;
+    } else if(/^[0-9]+$/.test(Telefono.value)) /*CONDICION QUE SOLO ACEPTA NÚMEROS DE 0 AL 9 DE INICIO A FINAL, TIENE QUE SER UNO O MÁS*/
+    {    
+    return true;
+    }
 }
 
-const validarPassword2 = () => {
-	const inputPassword1 = document.getElementById('password');
-	const inputPassword2 = document.getElementById('password2');
-
-	if(inputPassword1.value !== inputPassword2.value){
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
-		campos['password'] = false;
-	}
-
-	else {
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		campos['password'] = true;
-	}
+function validarContrasenajs ()
+{
+    if(/^(?=.*[A-ZÑ])(?=.*[a-zñ])(?=.*[0-9])[a-zA-ZÑñ0-9\!@#$%^&*()\\[\]{}\-_+=|:;"'<>,./?]{8,16}/.test(Contrasenajs.value))
+    {
+        return true;
+    }
+    else return false;
 }
 
-inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
+function validarConfirmContrasenajs ()
+{
+    if(ConfirmContrasenajs.value.length==0)
+    {
+        return false;
+    } else if(Contrasenajs.value !==ConfirmContrasenajs.value)
+    {
+        return false;
+    }
+    return true;
+}
+ function validarTerminosjs ()
+{
+    if(Terminosjs.checked)
+    {
+        return true;}
+}
+
+function validarPoliticajs ()
+{
+    if(Politicajs.checked)
+    {
+        return true;
+    }
+} 
+
+let Registro=document.getElementById("enviar-registro");
+Registro.addEventListener("click", (event)=>
+{
+    event.preventDefault();
+
+    if((!validarNombre())||(!validarCorreo())||(!validarTelefono())||(!validarContrasenajs())||(!validarConfirmContrasenajs()))
+    {
+        let listaregistro="";
+        if(!validarNombre())
+        {
+            Nombre.style.border="red thin solid";
+            listaregistro+="<li>Se debe escribir un Nombre válido con al menos 3 letras</li>"
+        }else {Nombre.style.border="";}
+
+        if(!validarTelefono())
+        {
+            Telefono.style.border="red thin solid"
+            listaregistro+="<li>Se debe escribir un Número válido</li>"
+        }else{Telefono.style.border="";}
+
+        if(!validarCorreo())
+        {
+            Correo.style.border="red thin solid"
+            listaregistro+="<li>Se debe escribir un Correo válido</li>"
+        }else{Correo.style.border="";}
+
+        if(!validarContrasenajs())
+        {
+            Contrasenajs.style.border="red thin solid"
+            listaregistro+="<li>Se debe escribir una contraseña con al menos una letra mayúscula, una minúscula y una letra</li>"
+        }else{Contrasenajs.style.border="";}
+
+        if(!validarConfirmContrasenajs())
+        {
+            ConfirmContrasenajs.style.border="red thin solid"
+            listaregistro+="<li>Se debe escribir una Contraseña válida y/o no coinciden</li>"
+        }else{ConfirmContrasenajs.style.border="";}
+
+        document.getElementById("alertValidTextregistro").innerHTML=`
+        Los campos deben ser llenados correctamente. <ul>${listaregistro}</ul>`;
+        
+        document.getElementById("alertValidacionregistro").style.display="block";
+
+        setTimeout(function()
+        {
+            document.getElementById("alertValidacionregistro").style.display="none";
+        }, 10000);
+
+        return false;
+    }
+
+    document.getElementById("alertValidacionregistro").style.display="none";
+        Swal.fire({
+            icon: 'success',
+            title: '¡REGISTRO EXITOSO!',
+            showConfirmButton: false,
+            timer: 2000
+          })
+
+    contador++;
+  /*localStorage.setItem("Numerodeusuarios", contador);
+    localStorage.setItem("Nombre",Nombre);
+    localStorage.setItem("Apellido Materno",AMaterno);
+    localStorage.setItem("Apellido Paterno",APaterno);
+    localStorage.setItem("Correo",Correo);
+    localStorage.setItem("Telefono",Telefono);
+    localStorage.setItem("Contraseña",Contrasenajs);
+*/
+    //JSON
+   let elemento=`{"id":"${contador}", 
+        "Nombre":"${Nombre.value}", 
+        "Correo":"${Correo.value}",
+        "Telefono":"${Telefono.value}",
+        "Contraseña":"${Contrasenajs.value}"
+    }`; 
+    datos.push(JSON.parse(elemento));
+   localStorage.setItem("elementosTabla", JSON.stringify(datos));
+   console.log(datos);
+//Registro
+
+Nombre.value="";
+Correo.value="";
+Telefono.value="";
+Contrasenajs.value="";
+ConfirmContrasenajs.value="";
+
+Nombre.style.border="";
+Correo.style.border="";
+Telefono.style.border="";
+Contrasenajs.style.border="";
+ConfirmContrasenajs.style.border="";
+
+
+}
+); //Enviar
+
+Nombre.addEventListener("blur", (event)=>
+{
+event.target.value=event.target.value.trim();
 });
 
-formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
-
-	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
-		formulario.reset();
-
-		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-		setTimeout(() => {
-			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 5000);
-
-		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-			icono.classList.remove('formulario__grupo-correcto');
-		});
-	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-	}
+Correo.addEventListener("blur", (event)=>{
+event.target.value=event.target.value.trim();
 });
 
-
-// localStorage
-
-let nombre = document.getElementById("nombre");
-let telefono = document.getElementById("telefono");
-let correo = document.getElementById("correo");
-let password = document.getElementById("password");
-let password2=document.getElementById("password2");
-let baseRegistro=[];
-
-btnCrearCuenta.addEventListener("click", (event)=> {
-event.preventDefault();
-let guardarRegistro =  `{"nombre" : "${nombre.value}",
-"telefono" : "${telefono.value}",
-"correo" : "${correo.value}",
-"password" : "${password.value}",
-"password2" : "${password2.value}"}`;
-
-//DEl JSON a Productos De Limpieza
-tmp = JSON.parse(localStorage.getItem("baseRegistro"));
-tmp.push(JSON.parse(guardarRegistro));
-
-localStorage.setItem("baseRegistro", JSON.stringify(tmp));
-});
-
-if(localStorage.length == 0){
-    window.localStorage.setItem("baseRegistro", JSON.stringify(baseRegistro));
-    window.addEventListener("load",function() {
-        productos = JSON.parse(localStorage.getItem("baseRegistro"));
-        productos.forEach(element => {
-            addItem(element);
-        });
+Telefono.addEventListener("blur", (event)=>{
+    event.target.value=event.target.value.trim();
     });
-}
-if(localStorage.length > 0){
-    window.addEventListener("load",function() {
-        productos = JSON.parse(localStorage.getItem("baseRegistro"));
-        productos.forEach(element => {
-            addItem(element);
-        });
+
+Contrasenajs.addEventListener("blur", (event)=>{
+    event.target.value=event.target.value.trim();
     });
-}
+
+ConfirmContrasenajs.addEventListener("blur", (event)=>{
+    event.target.value=event.target.value.trim();
+    });
