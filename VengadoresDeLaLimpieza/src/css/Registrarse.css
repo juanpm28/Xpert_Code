@@ -1,10 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-body {
-    font-family: 'Inter', sans-serif;
-} /* Se añadió fuente Inter */
-
 * {
 	box-sizing: border-box;
+}
+
+
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}
+
+footer{
+	background-color: black;
+	height:auto;
+	width: 100%;
+	margin-top: auto;
+	padding: 10px;
+	color:white;
+}
+
+.footer-content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.footer-content h3{
+font-size: 20px;
+line-height: 30px;
+}
+
+.footer-content .iconos{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.footer-content .iconos #iconc{
+	fill: white;
+	margin: 0 10px;
+	width: 18px;
+	height: 18px;
 }
 
 main {
@@ -39,7 +81,7 @@ main {
 #Registro{
 	color:white;
 	text-align: center;
-	font-size: 42px;
+	font-size: 45px;
 }
 
 #imagenVengador{
