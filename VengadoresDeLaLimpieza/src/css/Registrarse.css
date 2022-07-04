@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+} /* Se añadió fuente Inter */
+
 * {
 	box-sizing: border-box;
 }
@@ -34,7 +39,7 @@ main {
 #Registro{
 	color:white;
 	text-align: center;
-	font-size: 45px;
+	font-size: 42px;
 }
 
 #imagenVengador{
