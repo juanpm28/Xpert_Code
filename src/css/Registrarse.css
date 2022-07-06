@@ -13,7 +13,7 @@ main {
 	background-image: url("/src/imagenes/VengaCleanTransparente.png");
 	background-attachment: cover;
 	background-repeat: no-repeat;
-	background-size: 26%;
+	background-size: 20%;
 	background-position: left;
 	background-color: rgb(39, 110, 144);
 	border-radius: 50px;
@@ -21,7 +21,6 @@ main {
 	align-items: center;
 	margin-top: 30px;	
 }
-
 
 .formulario {
 	grid-template-columns: 1fr 1fr;
@@ -57,7 +56,7 @@ main {
 	position: relative;
 }
 
-.formulario__input {
+.formulario__input{
 	width: 80%;
 	background: #fff;
 	border: 3px solid transparent;
@@ -69,7 +68,7 @@ main {
 	margin-left: 20%;
 }
 
-.formulario__input:focus {
+.form-control:focus {
 	border: 3px solid #0075FF;
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
@@ -129,7 +128,7 @@ main {
 	
 }
 
-.formulario__btn {
+.btn {
 	float: left;
 	line-height: 45px;
 	width: 80%;
@@ -145,7 +144,7 @@ main {
 	margin-top: 4%;
 }
 
-.formulario__btn:hover {
+.btn:hover {
 	box-shadow: 3px 0px 30px rgba(163,163,163, 1);
 }
 

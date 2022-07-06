@@ -3,6 +3,17 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}
+
 #superior {
     box-sizing: content-box;
     width: 90%;
@@ -201,6 +212,8 @@ hr {
 
 
 }
+
+
 
     footer{
         background-color: black;
