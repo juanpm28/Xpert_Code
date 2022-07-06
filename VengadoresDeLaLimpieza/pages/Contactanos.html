@@ -108,8 +108,8 @@
       </div>
       <!-- Botón enviar -->
       <div class="formulario__grupo formulario__grupo-bttn-enviar">
-          <input type="submit" class="formulario__bttn formulario__bttn" value =Enviar>
-            <input type="hidden" name="_next" value="http://127.0.0.1:5502/pages/Contactanos.html"> <!--aqui va el servidor http...-->
+          <button type="submit" class="formulario__bttn" onclick="mostrar()">Enviar</button>
+            <input type="hidden" name="_next" onclick="mostrar()" value="http://127.0.0.1:5500/pages/Contactanos.html"> <!--aqui va el servidor http...-->
             <input type="hidden" name="_captcha" value="false">
       </div>
   </section>
@@ -159,6 +159,7 @@
         </div> <!--footer-content-->
     </footer>
   <script src="/src/js/Contactanos.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>
