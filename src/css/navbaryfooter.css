@@ -3,6 +3,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+
 #superior {
     box-sizing: content-box;
     width: 90%;
@@ -78,7 +79,7 @@ nav ul li a:hover:before {
     color: white;
 }
 
-hr {
+#hrSuperior {
     height: 10px;  /* cambias largo del borde */
     width: 90%;
     background-color: rgb(39, 110, 146);
@@ -96,11 +97,6 @@ hr {
     flex-direction: row;
     margin-left: 70px;
 }
-
-/* #login a {
-    text-decoration: none;
-    color: black;
-} */
 
 #carritoIcon {
     height: 50px;
@@ -165,10 +161,6 @@ hr {
     }
 }
 
-/* #btnBuscarCelular {
-    display: none;
-} */
-
 #navbarCelular {
     display: none;
 }
@@ -185,7 +177,7 @@ hr {
     .barraBuscador {
         min-width: 200px;
     }
-    hr {
+    #hrSuperior {
         width: 100%;
         margin-bottom: 0px;
         border-radius: 0px;
@@ -198,7 +190,9 @@ hr {
         display: flex;
         flex-direction: row;
     }
-
+    .dropdown-menu {
+        position: inherit;
+    }  /* Se estilizó cuando le das click al usuario en celular */
 
 }
 
