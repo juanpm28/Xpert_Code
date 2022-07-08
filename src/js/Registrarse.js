@@ -39,7 +39,7 @@ const validarFormulario = (e) => {
 }
 
 const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
+	if(expresion.test(input.value.trim())){
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
 		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
@@ -60,7 +60,7 @@ const validarPassword2 = () => {
 	const inputPassword1 = document.getElementById('password');
 	const inputPassword2 = document.getElementById('password2');
 
-	if(inputPassword1.value !== inputPassword2.value){
+	if(inputPassword1.value !== inputPassword2.value.trim()){
 		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
 		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
@@ -90,7 +90,7 @@ let telefono = document.getElementById("telefono");
 let correo = document.getElementById("correo");
 let password = document.getElementById("password");
 let password2=document.getElementById("password2");
-
+let btnCrearCuenta=document.getElementById("btnCrearCuenta");
 
 btnCrearCuenta.addEventListener("click", (event)=> {
 event.preventDefault();
