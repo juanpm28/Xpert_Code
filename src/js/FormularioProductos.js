@@ -24,7 +24,7 @@ const validarFormulario = (e) => {
 	}
 }
 const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
+	if(expresion.test(input.value.trim())){
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
 		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
@@ -50,9 +50,17 @@ let sku = document.getElementById("sku");
 let precio = document.getElementById("precio");
 let imagen = document.getElementById("inputFile");
 let vis = document.getElementById("imageFile");
+let botonEnviar=document.getElementById("botonEnviar")
 
 botonEnviar.addEventListener("click", (event)=> {
 event.preventDefault();
+if(campos.nombre && campos.sku && campos.precio && store ){
+	Swal.fire({
+		icon: 'success',
+		title: '¡REGISTRO EXITOSO!',
+		showConfirmButton: false,
+		timer: 2000
+	  })
 let registro = `
 {"nombre" : "${nombre.value}",
 "img" : "${imagen.value}",
@@ -63,7 +71,18 @@ tmp = JSON.parse(localStorage.getItem("productosLimpieza"));
 tmp.push(JSON.parse(registro));
 // Crear de nuevo el JSON
 localStorage.setItem("productosLimpieza", JSON.stringify(tmp));
-
+}else{ 
+	Swal.fire({
+		icon: 'error',
+		title: 'Por favor rellena los campos correctamente',
+		text: 'Intenta de nuevo',
+		
+	  });
+	  setTimeout (function(){
+	  window.location.reload();
+	  }, 2000
+	  )
+	}
 });
 
 botonEnviar.addEventListener("click", (event) =>{
@@ -120,9 +139,9 @@ let fileImage = document.getElementById('fileImage');
 
 		//previewFile(id imagen, input type file , textArea);
 		function previewFile(img, inputFile, input) {
-			var preview = document.getElementById(img);
-			var file    = document.getElementById(inputFile).files[0];
-			var reader  = new FileReader();
+			let preview = document.getElementById(img);
+			let file    = document.getElementById(inputFile).files[0];
+			let reader  = new FileReader();
 
 			reader.addEventListener("load", function () {
 				console.log(store.data.length);
@@ -145,5 +164,6 @@ let fileImage = document.getElementById('fileImage');
 			imageFile.src = store.data[selectImages.options[selectImages.selectedIndex].value];
 		});
 //******************************Imagen*********************************
+
 
 		
