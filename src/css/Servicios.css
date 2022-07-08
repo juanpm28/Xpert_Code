@@ -185,3 +185,28 @@ body {
     border-radius: 0px;
     margin: 5%;
 }
+@keyframes wipe-enter {
+    0% {
+        transform: scale(0, 1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.barra-titulo {
+    height: 7px;  /* cambias largo del borde */
+    margin-bottom: 30px;
+    background-color: rgb(96, 186, 155);
+    width: 45%;
+    margin-top: 0px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .barra-titulo {
+      animation-name: wipe-enter;
+      animation-duration: 1s;
+    }
+  }
