@@ -50,6 +50,7 @@ main {
 	color:white;
 	font-size: 20px;
 	margin-left: 20%;
+	font-size: 20px;
 	
 }
 
@@ -76,10 +77,10 @@ main {
 }
 
 .formulario__input-error {
-	font-size: 12px;
+	font-size: 16px;
 	margin-bottom: 0;
 	display: none;
-	color: white;
+	color:#f79191;
 	margin-left: 20%;
 }
 
